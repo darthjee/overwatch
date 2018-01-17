@@ -10,6 +10,7 @@ class AbilitiesController < ApplicationController
 
   # GET /abilities/new
   def new
+    render_basic
   end
 
   # GET /abilities/1/edit

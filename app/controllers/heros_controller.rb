@@ -10,6 +10,7 @@ class HerosController < ApplicationController
 
   # GET /heros/new
   def new
+    render_basic
   end
 
   # GET /heros/1/edit
