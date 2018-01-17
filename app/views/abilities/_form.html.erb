@@ -1,0 +1,37 @@
+<div ng-hide="controller.loaded">Loading ...</div>
+
+<div ng-show="controller.loaded">
+  <div class="col-md-3 col-sm-12">
+    <div class="row">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">New Hero</div>
+        <div class="panel-body">
+
+          <dl class="col-sm-12">
+            <% %w(name description).each do |key| %>
+              <div class="row">
+                <dt><%= as_title(key) %></dt> <dd><input ng-model="controller.data.ability.<%= key %>"></dd>
+              </div>
+            <% end %>
+
+            <div class="row">
+              <dt>Ultimate?</dt> <dd>
+              <select ng-model="controller.data.ability.is_ultimate">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="col-sm-12">
+            <div class="row">
+              <button ng-click="controller.save()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
