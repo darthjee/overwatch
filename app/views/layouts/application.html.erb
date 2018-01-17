@@ -9,6 +9,7 @@
   </head>
 
   <body ng-app="overwatch">
+    <%= render 'layouts/header' %>
     <div class="container-fluid" ng-view ng-controller="Global.Controller as gloc">
       <%= yield %>
     </div>
