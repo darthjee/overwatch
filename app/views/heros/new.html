@@ -1,9 +1,38 @@
 <div ng-hide="controller.loaded">Loading ...</div>
-<dl ng-show="controller.loaded">
-  <dt>Name</dt> <dd><input ng-model="controller.data.hero.name"></dd>
-  <dt>Real Name</dt> <dd><input ng-model="controller.data.hero.real_name"></dd>
-  <dt>Health</dt> <dd><input ng-model="controller.data.hero.health"></dd>
-  <dt>Armor</dt> <dd><input ng-model="controller.data.hero.armor"></dd>
-  <dt>Shield</dt> <dd><input ng-model="controller.data.hero.shield"></dd>
-<dl>
-<button ng-click="controller.save()">Save</button>
+
+<div ng-show="controller.loaded">
+  <div class="col-md-3 col-sm-12">
+    <div class="row">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">New Hero</div>
+        <div class="panel-body">
+
+          <dl ng-show="controller.loaded" class="col-sm-12">
+            <div class="row">
+              <dt>Name</dt> <dd><input ng-model="controller.data.hero.name"></dd>
+            </div>
+            <div class="row">
+              <dt>Real Name</dt> <dd><input ng-model="controller.data.hero.real_name"></dd>
+            </div>
+            <div class="row">
+              <dt>Health</dt> <dd><input ng-model="controller.data.hero.health"></dd>
+            </div>
+            <div class="row">
+              <dt>Armor</dt> <dd><input ng-model="controller.data.hero.armor"></dd>
+            </div>
+            <div class="row">
+              <dt>Shield</dt> <dd><input ng-model="controller.data.hero.shield"></dd>
+            </div>
+          </dl>
+
+          <div class="col-sm-12">
+            <div class="row">
+              <button ng-click="controller.save()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
