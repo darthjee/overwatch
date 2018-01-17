@@ -1,0 +1,5 @@
+regeneration:
+  id: 1
+  name: Regeneration
+  description: Regenerates
+  is_ultimate: false

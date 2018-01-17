@@ -1,0 +1,7 @@
+<div ng-hide="controller.loaded">Loading ...</div>
+<dl ng-show="controller.loaded">
+  <dt>Name</dt> <dd><input ng-model="controller.data.ability.name"></dd>
+  <dt>Description</dt> <dd><input ng-model="controller.data.ability.description"></dd>
+  <dt>Ultimate?</dt> <dd><input ng-model="controller.data.ability.is_ultimate"></dd>
+<dl>
+<button ng-click="controller.save()">Save</button>

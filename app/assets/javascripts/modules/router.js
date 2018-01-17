@@ -17,7 +17,10 @@
     '/',
     '/heros',
     '/heros/:id',
-    '/heros/:id/new'
+    '/heros/:id/new',
+    '/abilities',
+    '/abilities/:id',
+    '/abilities/:id/new'
   ];
 
   fn.customRoutes = {
