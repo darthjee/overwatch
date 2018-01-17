@@ -9,8 +9,9 @@
         <div class="panel-body">
 
           <dl>
-            <dt>Id</dt> <dd>{{ controller.data.id }}</dd>
-            <dt>Description</dt> <dd>{{ controller.data.description }}</dd>
+            <% %w(id description).each do |key| %>
+              <dt><%= as_title(key) %></dt> <dd>{{ controller.data.<%= key %> }}</dd>
+            <% end %>
             <dt>Ultimate?</dt> <dd>{{ controller.data.is_ultimate }}</dd>
           </dl>
           <div class="col-sm-12">

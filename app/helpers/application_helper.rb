@@ -22,4 +22,8 @@ module ApplicationHelper
     return true if Path::SafePath.new(self, method).does_respond_to?
     super
   end
+
+  def as_title(key)
+    key.split('_').map(&:camelize).join(' ')
+  end
 end

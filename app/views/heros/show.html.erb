@@ -9,11 +9,9 @@
         <div class="panel-body">
 
           <dl>
-            <dt>Id</dt> <dd>{{ controller.data.id }}</dd>
-            <dt>Real Name</dt> <dd>{{ controller.data.real_name }}</dd>
-            <dt>Health</dt> <dd>{{ controller.data.health }}</dd>
-            <dt>Armor</dt> <dd>{{ controller.data.armor }}</dd>
-            <dt>Shield</dt> <dd>{{ controller.data.shield }}</dd>
+            <% %w(id real_name health armor shield).each do |key| %>
+              <dt><%= as_title(key) %></dt> <dd>{{ controller.data.<%= key %> }}</dd>
+            <% end %>
           </dl>
           <div class="col-sm-12">
             <div class="row">
