@@ -11,7 +11,7 @@
           <dl class="col-sm-12">
             <% %w(name real_name health armor shield).each do |key| %>
               <div class="row">
-                <dt><%= as_title(key) %></dt> <dd><input ng-model="controller.data.hero.<%= key %>"></dd>
+                <dt><%= as_title(key) %></dt> <dd><input ng-model="controller.data.<%= [ base, key ].compact.join('.') %>"></dd>
               </div>
             <% end %>
           </dl>
