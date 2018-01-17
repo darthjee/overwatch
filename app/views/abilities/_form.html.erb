@@ -17,7 +17,7 @@
 
             <div class="row">
               <dt>Ultimate?</dt> <dd>
-              <select ng-model="controller.data.ability.is_ultimate">
+              <select ng-model="controller.data.<%= [ base, :is_ultimate].compact.join('.') %> ">
                 <option value="false">No</option>
                 <option value="true">Yes</option>
               </select>

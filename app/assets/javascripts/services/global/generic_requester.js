@@ -9,7 +9,7 @@
 
   GenericRequesterServiceBuilder.prototype.build = function($location) {
     var path = $location.$$path + '.json';
-    var savePath = $location.$$path.replace(/\/new$/, '') + '.json';
+    var savePath = $location.$$path.replace(/\/(new|edit)$/, '') + '.json';
     return new GenericRequesterService(path, savePath, this.http);
   };
 
@@ -28,7 +28,11 @@
   };
 
   fn.saveRequest = function(data) {
-    return this.http.post(this.savePath, data);
+    if (this.path.match(/new$/)) {
+      return this.http.post(this.savePath, data);
+    } else {
+      return this.http.patch(this.savePath, data);
+    }
   }
 
   Global.GenericRequesterService = GenericRequesterService;

@@ -1,3 +1,4 @@
+
 class AbilitiesController < ApplicationController
   include Common
   # GET /abilities
@@ -15,6 +16,7 @@ class AbilitiesController < ApplicationController
 
   # GET /abilities/1/edit
   def edit
+    render_basic
   end
 
   # POST /abilities
@@ -69,4 +71,6 @@ class AbilitiesController < ApplicationController
   def ability_params
     params.require(:ability).permit(:name, :description, :is_ultimate)
   end
+
+  alias_method :edit_json, :show_json
 end

@@ -15,6 +15,7 @@ class HerosController < ApplicationController
 
   # GET /heros/1/edit
   def edit
+    render_basic
   end
 
   # POST /heros
@@ -69,4 +70,6 @@ class HerosController < ApplicationController
   def hero_params
     params.require(:hero).permit(:name, :real_name, :health, :armor, :shield)
   end
+
+  alias_method :edit_json, :show_json
 end
