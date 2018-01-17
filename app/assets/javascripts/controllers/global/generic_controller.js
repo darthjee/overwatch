@@ -12,7 +12,7 @@
     this.requester = requester;
     this.notifier = notifier;
 
-    _.bindAll(this, '_setData', 'save');
+    _.bindAll(this, '_setData', 'save', 'request');
     this.request();
   };
 
@@ -29,6 +29,11 @@
   fn.save = function() {
     promise = this.requester.saveRequest(this.data);
     promise.then(this._setData);
+  }
+
+  fn.delete = function(id) {
+    promise = this.requester.deleteRequest(id);
+    promise.then(this.request);
   }
 
   app.controller('Global.GenericController', [

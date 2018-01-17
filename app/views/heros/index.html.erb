@@ -16,10 +16,11 @@
           <% %w(name real_name health armor shield).each do |key| %>
             <td>{{ hero.<%= key %> }}</td>
           <% end %>
-          <td>
+          <td class="btn-group">
             <a class="btn btn-default" href='<%=
               angular_path_to(edit_hero_safe_path(id: '{{ hero.id }}'))
             %>'>Edit</a>
+            <a class="btn btn-default" ng-click="controller.delete(hero.id)">Delete</a>
           </td>
         </tr>
       <table>

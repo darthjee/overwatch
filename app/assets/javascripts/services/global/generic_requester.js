@@ -33,7 +33,11 @@
     } else {
       return this.http.patch(this.savePath, data);
     }
-  }
+  };
+
+  fn.deleteRequest = function(id) {
+    return this.http.delete(this.path.replace(/(\.json)?$/, '/' + id + '.json'));
+  };
 
   Global.GenericRequesterService = GenericRequesterService;
 
