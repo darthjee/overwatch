@@ -16,11 +16,11 @@
   fn.directRoutes = [
     '/',
     '/heros',
+    '/heros/new',
     '/heros/:id',
-    '/heros/:id/new',
     '/abilities',
-    '/abilities/:id',
-    '/abilities/:id/new'
+    '/abilities/new',
+    '/abilities/:id'
   ];
 
   fn.customRoutes = {
