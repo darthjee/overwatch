@@ -1,0 +1,9 @@
+<div ng-hide="controller.loaded">Loading ...</div>
+<dl ng-show="controller.loaded">
+  <dt>Name</dt> <dd><input ng-model="controller.data.hero.name"></dd>
+  <dt>Real Name</dt> <dd><input ng-model="controller.data.hero.real_name"></dd>
+  <dt>Health</dt> <dd><input ng-model="controller.data.hero.health"></dd>
+  <dt>Armor</dt> <dd><input ng-model="controller.data.hero.armor"></dd>
+  <dt>Shield</dt> <dd><input ng-model="controller.data.hero.shield"></dd>
+<dl>
+<button ng-click="controller.save()">Save</button>

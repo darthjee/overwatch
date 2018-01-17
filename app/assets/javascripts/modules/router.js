@@ -14,6 +14,10 @@
   };
 
   fn.directRoutes = [
+    '/',
+    '/heros',
+    '/heros/:id',
+    '/heros/:id/new'
   ];
 
   fn.customRoutes = {

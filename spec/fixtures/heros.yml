@@ -1,0 +1,7 @@
+mercy:
+  id: 1
+  name: Mercy
+  real_name: Angela Ziegler
+  health: 100
+  armor: 150
+  shield: 150
