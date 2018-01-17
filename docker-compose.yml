@@ -1,0 +1,62 @@
+version: '2'
+services:
+  overwatch_postgres:
+    image: postgres:9.5
+    container_name: overwatch_postgres
+    env_file: .env
+    environment:
+      POSTGRES_USER: overwatch
+      POSTGRES_PASSWORD: overwatch
+    ports:
+      - localhost:$OVERWATCH_POSTGRES_PORT:5432
+
+  #################### Base  ####################
+
+  base: &base
+    build: .
+    env_file: .env
+    links:
+      - overwatch_postgres:postgres
+    volumes:
+      - .:/home/app/overwatch
+      - overwatch_gems_2_4_0:/usr/local/bundle
+
+  #################### CONTAINERS ####################
+
+  overwatch_app:
+    <<: *base
+    container_name: overwatch_app
+    command: /bin/bash bin/server.sh
+    ports:
+      - :3000:3000
+    environment:
+      - RAILS_ENV=development
+      - OVERWATCH_POSTGRES_PORT=5432
+      - OVERWATCH_SENTRY_KEY
+      - OVERWATCH_SENTRY_SECRET
+      - OVERWATCH_SENTRY_ID
+      - OVERWATCH_NEWRELIC_LICENSE
+      - ROLLBAR_ACCESS_TOKEN
+      - ROLLBAR_CLIENT_TOKEN
+      - OVERWATCH_NEWRELIC_APP
+
+  overwatch_tests:
+    <<: *base
+    container_name: overwatch_tests
+    command: /bin/bash bin/tests.sh
+    environment:
+      - RAILS_ENV=test
+
+  overwatch_root:
+    <<: *base
+    user: root
+    container_name: overwatch_root
+    command: /bin/bash
+
+networks:
+  default:
+    external:
+      name: overwatch
+
+volumes:
+  overwatch_gems_2_4_0:
