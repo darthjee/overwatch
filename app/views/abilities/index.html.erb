@@ -7,15 +7,20 @@
       <table class="table">
         <tr>
           <th>#</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Ultimate</th>
+          <% %w(name description ultimate? actions).each do |key| %>
+            <th><%= as_title(key) %></th>
+          <% end %>
         </tr>
         <tr ng-repeat="ability in controller.data">
           <td><a href="#/abilities/{{ ability.id }}">{{ ability.id }}</a></td>
-          <td>{{ ability.name }}</td>
-          <td>{{ ability.description }}</td>
-          <td>{{ ability.is_ultimate }}</td>
+          <% %w(name description is_ultimate).each do |key| %>
+            <td>{{ ability.<%= key %> }}</td>
+          <% end %>
+          <td>
+            <a class="btn btn-default" href='<%=
+              angular_path_to(edit_ability_safe_path(id: '{{ ability.id }}'))
+            %>'>Edit</a>
+          </td>
         </tr>
       <table>
 

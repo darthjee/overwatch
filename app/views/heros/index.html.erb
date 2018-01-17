@@ -7,19 +7,20 @@
       <table class="table">
         <tr>
           <th>#</th>
-          <th>Name</th>
-          <th>Real Name</th>
-          <th>Health</th>
-          <th>Armor</th>
-          <th>Shield</th>
+          <% %w(name real_name health armor shield actions).each do |key| %>
+            <th><%= as_title(key) %></th>
+          <% end %>
         </tr>
         <tr ng-repeat="hero in controller.data">
           <td><a href="#/heros/{{ hero.id }}">{{ hero.id }}</a></td>
-          <td>{{ hero.name }}</td>
-          <td>{{ hero.real_name }}</td>
-          <td>{{ hero.health }}</td>
-          <td>{{ hero.armor }}</td>
-          <td>{{ hero.shield }}</td>
+          <% %w(name real_name health armor shield).each do |key| %>
+            <td>{{ hero.<%= key %> }}</td>
+          <% end %>
+          <td>
+            <a class="btn btn-default" href='<%=
+              angular_path_to(edit_hero_safe_path(id: '{{ hero.id }}'))
+            %>'>Edit</a>
+          </td>
         </tr>
       <table>
 
