@@ -1,0 +1,30 @@
+<div ng-hide="controller.loaded">Loading ...</div>
+
+<div ng-show="controller.loaded">
+  <div class="col-md-4 col-sm-12">
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Ultimate</th>
+        </tr>
+        <tr ng-repeat="ability in controller.data">
+          <td><a href="#/abilities/{{ ability.id }}">{{ ability.id }}</a></td>
+          <td>{{ ability.name }}</td>
+          <td>{{ ability.description }}</td>
+          <td>{{ ability.is_ultimate }}</td>
+        </tr>
+      <table>
+
+      <div class="col-sm-12">
+        <div class="row">
+          <a class="btn btn-default" href='<%= angular_path_to(new_ability_path) %>'>New</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

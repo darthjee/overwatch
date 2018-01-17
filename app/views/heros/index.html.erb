@@ -1,0 +1,34 @@
+<div ng-hide="controller.loaded">Loading ...</div>
+
+<div ng-show="controller.loaded">
+  <div class="col-md-4 col-sm-12">
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Real Name</th>
+          <th>Health</th>
+          <th>Armor</th>
+          <th>Shield</th>
+        </tr>
+        <tr ng-repeat="hero in controller.data">
+          <td><a href="#/heros/{{ hero.id }}">{{ hero.id }}</a></td>
+          <td>{{ hero.name }}</td>
+          <td>{{ hero.real_name }}</td>
+          <td>{{ hero.health }}</td>
+          <td>{{ hero.armor }}</td>
+          <td>{{ hero.shield }}</td>
+        </tr>
+      <table>
+
+      <div class="col-sm-12">
+        <div class="row">
+          <a class="btn btn-default" href='<%= angular_path_to(new_hero_path) %>'>New</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

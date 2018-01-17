@@ -1,0 +1,33 @@
+<div ng-hide="controller.loaded">Loading ...</div>
+
+<div ng-show="controller.loaded">
+  <div class="col-md-2 col-sm-12">
+    <div class="row">
+      <div class="panel panel-default">
+
+        <div class="panel-heading">{{ controller.data.name }}</div>
+        <div class="panel-body">
+
+          <dl>
+            <dt>Id</dt> <dd>{{ controller.data.id }}</dd>
+            <dt>Description</dt> <dd>{{ controller.data.description }}</dd>
+            <dt>Ultimate?</dt> <dd>{{ controller.data.is_ultimate }}</dd>
+          </dl>
+          <div class="col-sm-12">
+            <div class="row">
+              <a class="btn btn-default" href='<%= angular_path_to(abilities_path) %>'>Return</a>
+              <a class="btn btn-default float-right" href='<%= 
+                angular_path_to(
+                  edit_ability_safe_path(
+                    id: '{{ controller.data.id }}'
+                  )
+                )
+              %>'>Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
