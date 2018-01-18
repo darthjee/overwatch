@@ -1,6 +1,6 @@
 (function(_, angular, Global) {
   function GenericController(builder, notifier, $location) {
-    this.construct(builder.build($location), notifier);
+    this.construct(builder.build($location), notifier, $location);
   }
 
   var fn = GenericController.prototype,
@@ -8,11 +8,12 @@
         'global/generic_requester', 'global/notifier'
       ]);
 
-  fn.construct = function(requester, notifier) {
+  fn.construct = function(requester, notifier, $location) {
     this.requester = requester;
     this.notifier = notifier;
+    this.location = $location;
 
-    _.bindAll(this, '_setData', 'save', 'request');
+    _.bindAll(this, '_setData', 'save', 'request', '_goIndex');
     this.request();
   };
 
@@ -29,7 +30,12 @@
   fn.save = function() {
     promise = this.requester.saveRequest(this.data);
     promise.then(this._setData);
-  }
+    promise.then(this._goIndex);
+  };
+
+  fn._goIndex = function() {
+    this.location.path(this.location.$$path.replace(/(\w*\/edit|new)/, ''));
+  };
 
   fn.delete = function(id) {
     promise = this.requester.deleteRequest(id);

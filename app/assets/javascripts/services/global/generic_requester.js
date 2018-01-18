@@ -28,7 +28,7 @@
   };
 
   fn.saveRequest = function(data) {
-    if (this.path.match(/new$/)) {
+    if (this.path.match(/new.json$/)) {
       return this.http.post(this.savePath, data);
     } else {
       return this.http.patch(this.savePath, data);
