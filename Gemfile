@@ -26,6 +26,7 @@ gem 'spring',        group: :development
 gem 'darthjee-core_ext'
 gem 'tarquinn'
 gem 'bower-rails', '~> 0.11.0'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'factory_girl', '~> 4.0'
